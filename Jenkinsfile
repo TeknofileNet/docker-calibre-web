@@ -8,8 +8,8 @@ pipeline {
   }
   // Configuration for the variables used for this specific repo
   environment {
-    BUILDS_DISCORD=credentials('build_webhook_url')
-    GITHUB_TOKEN=credentials('498b4638-2d02-4ce5-832d-8a57d01d97ab')
+//    BUILDS_DISCORD=credentials('build_webhook_url')
+//    GITHUB_TOKEN=credentials('498b4638-2d02-4ce5-832d-8a57d01d97ab')
     EXT_GIT_BRANCH = 'master'
     EXT_USER = 'janeczku'
     EXT_REPO = 'calibre-web'
@@ -635,6 +635,7 @@ pipeline {
       }
     }
     // If this is a Pull request send the CI link as a comment on it
+/*
     stage('Pull Request Comment') {
       when {
         not {environment name: 'CHANGE_ID', value: ''}
@@ -646,10 +647,12 @@ pipeline {
         -d '{"body": "I am a bot, here are the test results for this PR: \\n'${CI_URL}' \\n'${SHELLCHECK_URL}'"}' '''
       }
     }
+*/
   }
   /* ######################
      Send status to Discord
      ###################### */
+/*
   post {
     always {
       script{
@@ -669,4 +672,5 @@ pipeline {
       }
     }
   }
+*/
 }
